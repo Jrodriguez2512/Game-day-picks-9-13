@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEC Gameday Pick'em</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .matchup-card {
+            background-color: #f9fafb;
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto max-w-2xl">
+        <!-- Main content card -->
+        <div class="card p-6 sm:p-10 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-2">SEC Gameday Pick'em</h1>
+            <p class="text-gray-600 mb-8">
+                Select the winner for each matchup to submit your picks.
+            </p>
+
+            <form id="picksForm" class="text-left space-y-6">
+
+                <!-- User Name Input -->
+                <div class="mb-6">
+                    <label for="userName" class="block text-sm font-bold text-gray-700 mb-2">Your Name</label>
+                    <input type="text" id="userName" name="userName" placeholder="Enter your name" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" required>
+                </div>
+
+                <!-- Matchups list -->
+                <div class="space-y-6">
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">#19 Alabama at Wisconsin</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup1" value="Alabama" class="form-radio text-blue-600" required>
+                                <span class="text-gray-700 font-medium">Alabama</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup1" value="Wisconsin" class="form-radio text-red-600">
+                                <span class="text-gray-700 font-medium">Wisconsin</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">#24 Auburn at South Alabama</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup2" value="Auburn" class="form-radio text-orange-600" required>
+                                <span class="text-gray-700 font-medium">Auburn</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup2" value="South Alabama" class="form-radio text-red-600">
+                                <span class="text-gray-700 font-medium">South Alabama</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">#25 Missouri at Louisiana</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup3" value="Missouri" class="form-radio text-yellow-600" required>
+                                <span class="text-gray-700 font-medium">Missouri</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup3" value="Louisiana" class="form-radio text-red-600">
+                                <span class="text-gray-700 font-medium">Louisiana</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">#6 Georgia at #15 Tennessee</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup4" value="Georgia" class="form-radio text-red-600" required>
+                                <span class="text-gray-700 font-medium">Georgia</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup4" value="Tennessee" class="form-radio text-orange-600">
+                                <span class="text-gray-700 font-medium">Tennessee</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">Arkansas at #17 Ole Miss</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup5" value="Arkansas" class="form-radio text-red-600" required>
+                                <span class="text-gray-700 font-medium">Arkansas</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup5" value="Ole Miss" class="form-radio text-blue-600">
+                                <span class="text-gray-700 font-medium">Ole Miss</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">Florida at #3 LSU</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup6" value="Florida" class="form-radio text-orange-600" required>
+                                <span class="text-gray-700 font-medium">Florida</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup6" value="LSU" class="form-radio text-purple-600">
+                                <span class="text-gray-700 font-medium">LSU</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">Vanderbilt at #11 South Carolina</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup7" value="Vanderbilt" class="form-radio text-black" required>
+                                <span class="text-gray-700 font-medium">Vanderbilt</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup7" value="South Carolina" class="form-radio text-red-600">
+                                <span class="text-gray-700 font-medium">South Carolina</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- New games added -->
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">Alcorn State at Mississippi State</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup8" value="Alcorn State" class="form-radio text-purple-600" required>
+                                <span class="text-gray-700 font-medium">Alcorn State</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup8" value="Mississippi State" class="form-radio text-maroon-600">
+                                <span class="text-gray-700 font-medium">Mississippi State</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">Eastern Michigan at Kentucky</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup9" value="Eastern Michigan" class="form-radio text-green-600" required>
+                                <span class="text-gray-700 font-medium">Eastern Michigan</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup9" value="Kentucky" class="form-radio text-blue-600">
+                                <span class="text-gray-700 font-medium">Kentucky</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">#16 Texas A&M at #8 Notre Dame</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup10" value="Texas A&M" class="form-radio text-maroon-600" required>
+                                <span class="text-gray-700 font-medium">Texas A&M</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup10" value="Notre Dame" class="form-radio text-green-600">
+                                <span class="text-gray-700 font-medium">Notre Dame</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="matchup-card">
+                        <p class="text-lg font-bold text-gray-800 mb-3">UTEP at #7 Texas</p>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup11" value="UTEP" class="form-radio text-orange-600" required>
+                                <span class="text-gray-700 font-medium">UTEP</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-3 rounded-lg border-2 transition duration-300 hover:bg-gray-200 w-full">
+                                <input type="radio" name="matchup11" value="Texas" class="form-radio text-orange-600">
+                                <span class="text-gray-700 font-medium">Texas</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UTRGV vs. Langston score prediction -->
+                <div class="matchup-card mt-6">
+                    <p class="text-lg font-bold text-gray-800 mb-3">UTRGV vs. Langston Score Prediction</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                        <div class="w-full">
+                            <label for="utrgvScore" class="block text-sm font-medium text-gray-700 mb-2">UTRGV Score</label>
+                            <input type="number" id="utrgvScore" name="utrgvScore" placeholder="Enter score" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" required>
+                        </div>
+                        <div class="w-full">
+                            <label for="langstonScore" class="block text-sm font-medium text-gray-700 mb-2">Langston Score</label>
+                            <input type="number" id="langstonScore" name="langstonScore" placeholder="Enter score" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <div class="mt-8 text-center">
+                    <button type="submit" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                        Submit Picks
+                    </button>
+                </div>
+
+                <!-- Message box for feedback -->
+                <div id="messageBox" class="hidden mt-4 p-4 rounded-lg text-center" role="alert"></div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('picksForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const userName = document.getElementById('userName').value.trim();
+            if (!userName) {
+                showMessage("Please enter your name.", "bg-red-200 text-red-800");
+                return;
+            }
+
+            const matchups = [
+                { name: "matchup1", teams: ["Alabama", "Wisconsin"] },
+                { name: "matchup2", teams: ["Auburn", "South Alabama"] },
+                { name: "matchup3", teams: ["Missouri", "Louisiana"] },
+                { name: "matchup4", teams: ["Georgia", "Tennessee"] },
+                { name: "matchup5", teams: ["Arkansas", "Ole Miss"] },
+                { name: "matchup6", teams: ["Florida", "LSU"] },
+                { name: "matchup7", teams: ["Vanderbilt", "South Carolina"] },
+                { name: "matchup8", teams: ["Alcorn State", "Mississippi State"] },
+                { name: "matchup9", teams: ["Eastern Michigan", "Kentucky"] },
+                { name: "matchup10", teams: ["Texas A&M", "Notre Dame"] },
+                { name: "matchup11", teams: ["UTEP", "Texas"] }
+            ];
+
+            let body = `SEC Gameday Picks for ${userName}:\n\n`;
+            let allPicksMade = true;
+
+            for (const matchup of matchups) {
+                const pickedTeam = document.querySelector(`input[name="${matchup.name}"]:checked`);
+                if (pickedTeam) {
+                    body += `Pick for ${matchup.teams.join(' vs ')}: ${pickedTeam.value}\n`;
+                } else {
+                    allPicksMade = false;
+                    break;
+                }
+            }
+
+            const utrgvScore = document.getElementById('utrgvScore').value.trim();
+            const langstonScore = document.getElementById('langstonScore').value.trim();
+
+            if (!utrgvScore || !langstonScore) {
+                allPicksMade = false;
+            }
+
+            if (!allPicksMade) {
+                showMessage("Please make a selection for all matchups and provide a score prediction for the UTRGV vs. Langston game.", "bg-red-200 text-red-800");
+                return;
+            }
+            
+            body += `\nUTRGV vs. Langston Score Prediction:\nUTRGV: ${utrgvScore}\nLangston: ${langstonScore}\n`;
+
+            const subject = encodeURIComponent(`Gameday Picks from ${userName}`);
+            const encodedBody = encodeURIComponent(body);
+            const mailtoLink = `mailto:Jrodriguez2512@gmail.com?subject=${subject}&body=${encodedBody}`;
+
+            window.location.href = mailtoLink;
+        });
+
+        function showMessage(message, classes) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = message;
+            messageBox.className = `mt-4 p-4 rounded-lg text-center ${classes}`;
+            messageBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
